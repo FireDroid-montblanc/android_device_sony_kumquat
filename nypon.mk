@@ -72,6 +72,8 @@ PRODUCT_COPY_FILES += \
 
 # Misc configuration files
 PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/config/aladdin.conf:system/etc/aladdin.conf \
+   $(LOCAL_PATH)/config/asound.conf:system/etc/asound.conf \
    $(LOCAL_PATH)/config/button_light_curve.cfg:system/etc/button_light_curve.cfg \
    $(LOCAL_PATH)/config/cflashlib.cfg:system/etc/cflashlib.cfg \
    $(LOCAL_PATH)/config/flashled_param_config.cfg:system/etc/flashled_param_config.cfg \
