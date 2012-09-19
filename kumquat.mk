@@ -15,9 +15,9 @@
 #
 
 # Inherit the proprietary counterpart
-$(call inherit-product-if-exists, vendor/sony/nypon/nypon-vendor.mk)
+$(call inherit-product-if-exists, vendor/kumquat/kumquat/kumquat-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/sony/nypon/overlay
+DEVICE_PACKAGE_OVERLAYS += device/sony/kumquat/overlay
 
 # Inherit the montblanc-common definitions
 $(call inherit-product, device/sony/montblanc-common/montblanc.mk)
@@ -29,11 +29,8 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# This device is xhdpi.  However the platform doesn't
-# currently contain all of the bitmaps at xhdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the xhdpi doesn't exist.
-PRODUCT_AAPT_CONFIG := normal mdpi hdpi
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Configuration scripts
@@ -91,5 +88,5 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/sony/nypon/nypon-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/kumquat/kumquat-vendor.mk)
 

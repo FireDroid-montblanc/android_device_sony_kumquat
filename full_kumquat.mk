@@ -33,11 +33,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/sony/montblanc-common/prebuilt/resources-hdpi.mk)
 
 # Inherit from nypon device
-$(call inherit-product, device/sony/nypon/nypon.mk)
+$(call inherit-product, device/sony/kumquat/kumquat.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := full_nypon
-PRODUCT_DEVICE := nypon
+PRODUCT_NAME := full_kumquat
+PRODUCT_DEVICE := kumquat
 PRODUCT_BRAND := Sony
 PRODUCT_MANUFACTURER := Sony
-PRODUCT_MODEL := Xperia P
+PRODUCT_MODEL := Xperia U

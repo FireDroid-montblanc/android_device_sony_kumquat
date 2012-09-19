@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VENDOR=sony
-DEVICE=nypon
+DEVICE=kumquat
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 
