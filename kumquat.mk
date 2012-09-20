@@ -37,6 +37,12 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_COPY_FILES += \
    device/sony/montblanc-common/prebuilt/logo.rle:root/logo.rle \
 
+# Ramdisk with recovery for stock kernel
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/prebuilt/chargemon:system/bin/chargemon \
+   $(LOCAL_PATH)/prebuilt/charger:system/bin/charger \
+   $(LOCAL_PATH)/prebuilt/recovery.tar:system/bin/recovery.tar \
+   $(LOCAL_PATH)/prebuilt/sh:system/xbin/sh
 
 # Configuration scripts
 PRODUCT_COPY_FILES += \
