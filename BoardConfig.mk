@@ -6,7 +6,8 @@ USE_CAMERA_STUB := true
 #inherit from the common montblanc definitions
 -include device/sony/montblanc-common/BoardConfigCommon.mk
 
-#TARGET_PREBUILT_KERNEL := device/sony/kumquat/prebuilt/kernel
+# Prebuilt kernel
+TARGET_PREBUILT_KERNEL := device/sony/kumquat/prebuilt/kernel
 
 # Partition information
 BOARD_VOLD_MAX_PARTITIONS := 16
