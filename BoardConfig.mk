@@ -6,8 +6,10 @@ USE_CAMERA_STUB := true
 #inherit from the common montblanc definitions
 -include device/sony/montblanc-common/BoardConfigCommon.mk
 
-# Prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/sony/kumquat/prebuilt/kernel
+TARGET_KERNEL_SOURCE := kernel/sony/u8500
+TARGET_KERNEL_CONFIG := cyanogen_kumquat_defconfig
+#TARGET_PREBUILT_KERNEL := device/sony/kumquat/prebuilt/kernel
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 # Partition information
 BOARD_VOLD_MAX_PARTITIONS := 16
@@ -26,4 +28,4 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 BOARD_SDCARD_INTERNAL_DEVICE := /dev/block/mmcblk0p14
 
-TARGET_OTA_ASSERT_DEVICE := ST25i,ST25a,kumquat
+TARGET_OTA_ASSERT_DEVICE := LT25i,LT25a,kumquat

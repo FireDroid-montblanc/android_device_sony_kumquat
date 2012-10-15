@@ -15,7 +15,7 @@
 #
 
 # Inherit the proprietary counterpart
-$(call inherit-product-if-exists, vendor/kumquat/kumquat/kumquat-vendor.mk)
+$(call inherit-product-if-exists, vendor/sony/kumquat/kumquat-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/sony/kumquat/overlay
 
@@ -29,23 +29,20 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal hdpi
+# This device is hdpi.  However the platform doesn't
+# currently contain all of the bitmaps at hdpi density so
+# we do this little trick to fall back to the hdpi version
+# if the hdpi doesn't exist.
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Configuration scripts
 PRODUCT_COPY_FILES += \
-   device/sony/montblanc-common/prebuilt/logo.rle:root/logo.rle \
-
-# Ramdisk with recovery for stock kernel
-PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/prebuilt/chargemon:system/bin/chargemon \
-   $(LOCAL_PATH)/prebuilt/charger:system/bin/charger \
-   $(LOCAL_PATH)/prebuilt/recovery.tar:system/bin/recovery.tar \
-   $(LOCAL_PATH)/prebuilt/sh:system/xbin/sh
+   device/sony/montblanc-common/prebuilt/logo.rle:root/logo.rle
 
 # Configuration scripts
 PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/config/dash.conf:system/etc/dash.conf \
    $(LOCAL_PATH)/prebuilt/hw_config.sh:system/etc/hw_config.sh
 
 # USB function switching
@@ -59,38 +56,28 @@ PRODUCT_COPY_FILES += \
 # Recovery bootstrap (device-specific part)
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/recovery/bootrec-device:root/sbin/bootrec-device \
+   $(LOCAL_PATH)/recovery/bootrec-device-fs:root/sbin/bootrec-device-fs \
    $(LOCAL_PATH)/recovery.fstab:root/recovery.fstab
 
 # Key layouts and touchscreen
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/config/AB8500_Hs_Button.kl:system/usr/keylayout/AB8500_Hs_Button.kl \
    $(LOCAL_PATH)/config/simple_remote.kl:system/usr/keylayout/simple_remote.kl \
+   $(LOCAL_PATH)/config/simple_remote_appkey.kl:system/usr/keylayout/simple_remote_appkey.kl \
+   $(LOCAL_PATH)/config/cyttsp_key.kl:system/usr/keylayout/cyttsp_key.kl \
    $(LOCAL_PATH)/config/so34-buttons.kl:system/usr/keylayout/so34-buttons.kl \
    $(LOCAL_PATH)/config/STMPE-keypad.kl:system/usr/keylayout/STMPE-keypad.kl \
    $(LOCAL_PATH)/config/tc3589x-keypad.kl:system/usr/keylayout/tc3589x-keypad.kl \
    $(LOCAL_PATH)/config/ux500-ske-keypad.kl:system/usr/keylayout/ux500-ske-keypad.kl.kl \
    $(LOCAL_PATH)/config/ux500-ske-keypad-qwertz.kl:system/usr/keylayout/ux500-ske-keypad-qwertz.kl \
+   $(LOCAL_PATH)/config/cyttsp-spi.idc:system/usr/idc/cyttsp-spi.idc \
    $(LOCAL_PATH)/config/sensor00_f11_sensor0.idc:system/usr/idc/sensor00_f11_sensor0.idc \
    $(LOCAL_PATH)/config/synaptics_rmi4_i2c.idc:system/usr/idc/synaptics_rmi4_i2c.idc
 
 # Misc configuration files
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/config/aladdin.conf:system/etc/aladdin.conf \
-   $(LOCAL_PATH)/config/asound.conf:system/etc/asound.conf \
-   $(LOCAL_PATH)/config/button_light_curve.cfg:system/etc/button_light_curve.cfg \
    $(LOCAL_PATH)/config/cflashlib.cfg:system/etc/cflashlib.cfg \
-   $(LOCAL_PATH)/config/flashled_param_config.cfg:system/etc/flashled_param_config.cfg \
-   $(LOCAL_PATH)/config/sysmon.cfg:system/etc/sysmon.cfg
-
-#Offline charging animation
-PRODUCT_COPY_FILES += \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_01.png:system/semc/chargemon/data/charging_animation_01.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_02.png:system/semc/chargemon/data/charging_animation_02.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_03.png:system/semc/chargemon/data/charging_animation_03.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_04.png:system/semc/chargemon/data/charging_animation_04.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_05.png:system/semc/chargemon/data/charging_animation_05.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_06.png:system/semc/chargemon/data/charging_animation_06.png \
-    device/sony/montblanc-common/prebuilt/animations/charging_animation_07.png:system/semc/chargemon/data/charging_animation_07.png
+   $(LOCAL_PATH)/config/flashled_param_config.cfg:system/etc/flashled_param_config.cfg
 
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
