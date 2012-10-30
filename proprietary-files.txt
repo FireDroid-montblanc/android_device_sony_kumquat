@@ -159,6 +159,10 @@ lib/libste_adm.so
 lib/libste_aiq_tools.so
 lib/libste_audio_hwctrl.so
 lib/libste_audio_mixer.so
+lib/libste_dec_amr.so
+lib/libste_dec_amrwb.so
+lib/libste_enc_amr.so
+lib/libste_enc_amrwb.so
 lib/libste_ens_audio_common.so
 lib/libste_ens_audio_samplerateconv.so
 lib/libste_ens_image_common.so
@@ -185,12 +189,15 @@ lib/ste_omxcomponents/libst_omxredeye_detector.so
 lib/ste_omxcomponents/libst_omxsplitter.so
 lib/ste_omxcomponents/libste_alsasink.so
 lib/ste_omxcomponents/libste_alsasource.so
+lib/ste_omxcomponents/libste_audio_mixer.so
 lib/ste_omxcomponents/libste_audio_source_sink.so
 lib/ste_omxcomponents/libste_binary_splitter.so
 lib/ste_omxcomponents/libste_camera.so
 lib/ste_omxcomponents/libste_comfort_noise.so
 lib/ste_omxcomponents/libste_cscall.so
 lib/ste_omxcomponents/libste_dec_aacarm.so
+lib/ste_omxcomponents/libste_dec_amr.so
+lib/ste_omxcomponents/libste_dec_amrwb.so
 lib/ste_omxcomponents/libste_dec_h264.so
 lib/ste_omxcomponents/libste_dec_jpeg.so
 lib/ste_omxcomponents/libste_dec_mp3.so
@@ -200,6 +207,8 @@ lib/ste_omxcomponents/libste_dec_vc1.so
 lib/ste_omxcomponents/libste_dec_wmapro_v10.so
 lib/ste_omxcomponents/libste_drc.so
 lib/ste_omxcomponents/libste_enc_aac.so
+lib/ste_omxcomponents/libste_enc_amr.so
+lib/ste_omxcomponents/libste_enc_amrwb.so
 lib/ste_omxcomponents/libste_enc_h264.so
 lib/ste_omxcomponents/libste_enc_jpeg.so
 lib/ste_omxcomponents/libste_enc_mpeg4.so
