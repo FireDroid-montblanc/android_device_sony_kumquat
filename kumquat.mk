@@ -38,7 +38,16 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Configuration scripts
 PRODUCT_COPY_FILES += \
-   device/sony/montblanc-common/prebuilt/logo.rle:root/logo.rle
+   device/sony/montblanc-common/prebuilt/logo-480x854.rle:root/logo.rle
+
+# Dual recovery and ramdisk for stock kernel
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/prebuilt/charger:system/bin/charger \
+   $(LOCAL_PATH)/prebuilt/chargemon:system/bin/chargemon \
+   $(LOCAL_PATH)/prebuilt/cwm-ics.tar:system/bin/cwm-ics.tar \
+   $(LOCAL_PATH)/prebuilt/cwm-touch.tar:system/bin/cwm-touch.tar \
+   $(LOCAL_PATH)/prebuilt/ramdisk.tar:system/bin/ramdisk.tar \
+   $(LOCAL_PATH)/prebuilt/sh:system/xbin/sh
 
 # Configuration scripts
 PRODUCT_COPY_FILES += \
@@ -65,7 +74,6 @@ PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/config/simple_remote.kl:system/usr/keylayout/simple_remote.kl \
    $(LOCAL_PATH)/config/simple_remote_appkey.kl:system/usr/keylayout/simple_remote_appkey.kl \
    $(LOCAL_PATH)/config/cyttsp_key.kl:system/usr/keylayout/cyttsp_key.kl \
-   $(LOCAL_PATH)/config/so34-buttons.kl:system/usr/keylayout/so34-buttons.kl \
    $(LOCAL_PATH)/config/STMPE-keypad.kl:system/usr/keylayout/STMPE-keypad.kl \
    $(LOCAL_PATH)/config/tc3589x-keypad.kl:system/usr/keylayout/tc3589x-keypad.kl \
    $(LOCAL_PATH)/config/ux500-ske-keypad.kl:system/usr/keylayout/ux500-ske-keypad.kl.kl \
@@ -83,3 +91,5 @@ $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product-if-exists, vendor/sony/kumquat/kumquat-vendor.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240

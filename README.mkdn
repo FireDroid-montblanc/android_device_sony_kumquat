@@ -1,1 +1,0 @@
-Device folder for kumquat, based on fxp's nypon device folder.
