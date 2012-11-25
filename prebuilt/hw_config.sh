@@ -2,10 +2,13 @@
 # Touch FW loader
 cyttsp_fwloader -dev /sys/bus/spi/devices/spi9.0 -fw /etc/firmware/ttsp_fw.hex
 
+<<<<<<< HEAD
 #Fix wifi for stock kernel(thanks to: dapaua)
 rm -r /data/system/wpa_supplicant
 killall wpa_supplicant
 
+=======
+>>>>>>> upstream/ics
 # Audio jack configuration
 dev=/sys/devices/platform/simple_remote.0
 echo 0,301,1901 > $dev/accessory_min_vals
